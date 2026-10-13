@@ -83,6 +83,15 @@ def main():
     # Сортируем по идентификатору для удобства проверки
     merged = merged.sort_values("SEQN").reset_index(drop=True)
 
+    # Исправляем техническое представление нулей.
+    # Заменяем только значения, очень близкие к нулю.
+    numeric_columns = merged.select_dtypes(include="number").columns
+
+    merged[numeric_columns] = merged[numeric_columns].mask(
+        merged[numeric_columns].abs() < 1e-70,
+        0
+    )
+
     # Сохраняем объединённую исходную таблицу
     output_file = OUTPUT_DIR / "merged_raw.csv"
     merged.to_csv(output_file, index=False, encoding="utf-8-sig")
@@ -100,6 +109,8 @@ def main():
         columns = [col for col in df.columns if col != "SEQN"]
         available = merged[columns].notna().any(axis=1).sum()
         print(f"  {filename}: данные есть у {available} участников")
+
+
 
 
 if __name__ == "__main__":

@@ -8,3 +8,5 @@ venv/
 # Python cache
 __pycache__/
 *.py[cod]
+/dummyPy.py
+/check_xpt.py
