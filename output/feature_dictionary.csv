@@ -1,22 +1,22 @@
-﻿column,description
-SEQN,Идентификатор участника NHANES
-PHQ9_total,Целевая переменная: сумма девяти вопросов PHQ-9
-RIDAGEYR,Возраст в годах; верхнее значение 80 означает 80 лет и старше
-RIAGENDR,Пол по кодировке NHANES
-DMDEDUC2,Уровень образования взрослых
-DMDMARTZ,Семейное положение
-INDFMPIR,Отношение семейного дохода к порогу бедности
-DMDHHSIZ,Размер домохозяйства; 7 означает 7 человек и более
-average_sleep_hours,Средняя продолжительность сна в сутки за неделю
-SMQ020,Курил ли участник не менее 100 сигарет за жизнь: 0/1
-SMQ040,"Текущий статус курения: 1 = не курит, 2 = иногда, 3 = ежедневно"
-ALQ121,Приблизительное число случаев употребления алкоголя в год
-ALQ130,Среднее число стандартных порций в день употребления
-ALQ142,Приблизительное число эпизодов интенсивного употребления в год
-moderate_activity_min_week,Минуты умеренной досуговой активности за неделю
-vigorous_activity_min_week,Минуты интенсивной досуговой активности за неделю
-sedentary_minutes,Минуты сидячего времени в обычный день
-FSDAD,Категория продовольственной обеспеченности взрослых
-INQ300,Ответ на вопрос о финансовых активах; кодировку проверить по кодбуку
-moderate_activity_category,Категория умеренной активности по терцилям
-vigorous_activity_category,Категория интенсивной активности по терцилям
+feature,description,role
+SEQN,NHANES participant identifier; not a predictor.,identifier
+PHQ9_total,"Target: sum of the nine PHQ-9 symptom items, valid range 0-27.",target
+RIDAGEYR,Age in years; NHANES top-codes ages 80 and above as 80.,predictor
+RIAGENDR,"Sex: 1 = male, 2 = female.",predictor
+DMDEDUC2,Education among adults aged 20+: 1 = less than 9th grade; 2 = 9-11th grade or 12th grade without diploma; 3 = high school/GED; 4 = some college/associate degree; 5 = college graduate or above. Special codes set missing.,predictor
+DMDMARTZ,Marital status: 1 = married/living with partner; 2 = widowed/divorced/separated; 3 = never married. Special codes set missing.,predictor
+INDFMPIR,Family income-to-poverty ratio; 5.00 represents 5.00 or more.,predictor
+DMDHHSIZ,Household size; 7 represents 7 or more people.,predictor
+average_sleep_hours,Weighted average sleep: (5 * weekday hours + 2 * weekend hours) / 7; computed only when both values are in the documented 2-14 range.,predictor
+SMQ020,"Ever smoked at least 100 cigarettes: 1 = yes, 0 = no; special/invalid values set missing.",predictor
+SMQ040,"Current smoking frequency among respondents routed to this question: 1 = every day, 2 = some days, 3 = not at all; special/invalid values set missing.",predictor
+ALQ121,"Estimated annual number of drinking occasions derived from NHANES past-year frequency categories. Approximate, not an exact count.",predictor
+ALQ130,Average drinks per drinking day: source values 1-14 retained; 15 represents 15 or more; set to zero when ALQ121 indicates never drinking; missing when drinking frequency is invalid.,predictor
+ALQ142,"Estimated annual number of heavy drinking occasions, derived from NHANES frequency categories. Approximate, not an exact count.",predictor
+moderate_activity_min_week,Estimated minutes per week of moderate-intensity leisure-time physical activity.,predictor
+vigorous_activity_min_week,Estimated minutes per week of vigorous-intensity leisure-time physical activity.,predictor
+sedentary_minutes,"Minutes spent sitting on a typical day, from PAD680.",predictor
+FSDAD,Adult food security category: 1 = full; 2 = marginal; 3 = low; 4 = very low food security.,predictor
+INQ300,"Family has more than $5,000 in savings/cash assets: 1 = yes, 0 = no; special/invalid values set missing.",predictor
+moderate_activity_category,"Alternative categorical version of moderate weekly activity: low, medium, high based on approximate thirds of valid values.",predictor
+vigorous_activity_category,"Alternative categorical version of vigorous weekly activity: low, medium, high based on approximate thirds of valid values.",predictor
